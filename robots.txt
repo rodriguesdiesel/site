@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rodriguesdiesel.com.br/sitemap.xml
