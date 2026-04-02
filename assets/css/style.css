@@ -372,6 +372,17 @@ select {
   box-shadow: var(--shadow);
 }
 
+.contact-panel a {
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(239, 60, 50, 0.4);
+  transition: all 0.2s ease;
+}
+
+.contact-panel a:hover {
+  color: #ef3c32;
+  border-bottom-color: #ef3c32;
+}
 .card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
   border-radius: var(--radius);
@@ -567,8 +578,12 @@ select {
   min-height: 54px;
   padding: 14px 16px;
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(239, 60, 50, 0.28);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.04)
+  );
   color: #ffffff;
   outline: none;
   transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
@@ -577,9 +592,58 @@ select {
 .field:focus,
 .select:focus,
 .textarea:focus {
-  border-color: rgba(239, 60, 50, 0.48);
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 0 0 4px rgba(239, 60, 50, 0.08);
+  border-color: rgba(239, 60, 50, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 4px rgba(239, 60, 50, 0.14);
+}
+
+.select {
+  width: 100%;
+  min-height: 54px;
+  padding: 14px 46px 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(239, 60, 50, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.04));
+  color: #ffffff;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.select:focus {
+  border-color: rgba(239, 60, 50, 0.78);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 0 0 4px rgba(239, 60, 50, 0.12);
+}
+
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(255, 255, 255, 0.82);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.82);
+  transform: translateY(-65%) rotate(45deg);
+  pointer-events: none;
+}
+
+.select option {
+  background: #161616;
+  color: #ffffff;
+}
+
+.select:invalid {
+  color: #a6a6a6;
 }
 
 .textarea {
@@ -595,8 +659,9 @@ select {
 .form-group label {
   display: block;
   margin: 0 0 8px;
-  color: #dddddd;
+  color: #f3f3f3;
   font-weight: 700;
+  font-size: 1rem;
 }
 
 .form-group--full {

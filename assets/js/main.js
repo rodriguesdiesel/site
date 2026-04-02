@@ -16,6 +16,7 @@ if (navToggle && siteNav) {
 }
 
 const contactForm = document.querySelector('#contactForm');
+
 if (contactForm) {
   contactForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -31,23 +32,22 @@ if (contactForm) {
     const servico = get('servico');
     const mensagem = get('mensagem');
 
-    const texto = [
-      'Olá, Rodrigues Diesel! Gostaria de solicitar atendimento.',
-      '',
-      `*Nome:* ${nome || '-'}',`,
-    ];
-
-    const linhas = [
-      'Olá, Rodrigues Diesel! Gostaria de solicitar atendimento.',
-      '',
-      `*Nome:* ${nome || '-'}`,
-      `*Empresa:* ${empresa || '-'}`,
-      `*Cidade/UF:* ${cidade || '-'}`,
-      `*Telefone:* ${telefone || '-'}`,
-      `*E-mail:* ${email || '-'}`,
-      `*Serviço:* ${servico || '-'}`,
-      `*Mensagem:* ${mensagem || '-'}`
-    ];
+const linhas = [
+  'Olá, Rodrigues Diesel! Gostaria de solicitar atendimento.',
+  '',
+  '*DADOS DO CLIENTE*',
+  `Nome: ${nome || '-'}`,
+  `Empresa: ${empresa || '-'}`,
+  `Cidade/UF: ${cidade || '-'}`,
+  `Telefone: ${telefone || '-'}`,
+  `E-mail: ${email || '-'}`,
+  '',
+  '*SERVIÇO*',
+  `Tipo: ${servico || '-'}`,
+  '',
+  '*MENSAGEM*',
+  `${mensagem || '-'}`
+];
 
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(linhas.join('\n'))}`;
     window.open(url, '_blank');

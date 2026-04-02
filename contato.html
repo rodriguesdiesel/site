@@ -30,11 +30,12 @@
   </header>
 
   <main>
-    <section class="page-banner" style="--hero-image: url('https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=1600&q=80');">
-      <div class="container page-banner__content">
-        <span class="kicker">Fale com a nossa equipe</span>
-        <h1>Contato</h1>
-        <p>Solicite atendimento, tire dúvidas ou envie sua necessidade pelo formulário abaixo.</p>
+    <section class="hero" style="--hero-image: url('../img/hero-contato.png');">
+      <div class="container">
+        <div class="hero__content">
+          <h1>Contato</h1>
+          <p>Solicite atendimento, tire dúvidas ou envie sua necessidade pelo formulário abaixo.</p>
+        </div>
       </div>
     </section>
 
@@ -50,11 +51,20 @@
             <ul>
               <li><strong>Empresa:</strong> Rodrigues Diesel</li>
               <li><strong>CNPJ:</strong> 28.309.634/0001-40</li>
-              <li><strong>Endereço:</strong> Alameda Bom Pastor, 1701 - Costeira</li>
-              <li><strong>Cidade:</strong> São José dos Pinhais/PR</li>
               <li><strong>Telefone:</strong> (41) 99916-6477</li>
-              <li><strong>E-mail:</strong> rodriguesdiesel2023@gmail.com</li>
-              <li><strong>Instagram:</strong> @rodrigues.dieselsjp</li>
+<li>
+  <strong>E-mail:</strong>
+  <a href="mailto:rodriguesdiesel2023@gmail.com">
+    rodriguesdiesel2023@gmail.com
+  </a>
+</li>
+
+<li>
+  <strong>Instagram:</strong>
+  <a href="https://www.instagram.com/rodrigues.dieselsjp" target="_blank" rel="noopener">
+    @rodrigues.dieselsjp
+  </a>
+</li>
             </ul>
             <p style="margin-top:28px;"><a class="btn-whatsapp" href="https://wa.me/5541999166477?text=Eu%20vi%20seu%20contato%20no%20site%20e%20quero%20saber%20Mais." target="_blank" rel="noopener">Chamar no WhatsApp</a></p>
           </aside>
@@ -84,18 +94,22 @@
                   <label for="email">E-mail</label>
                   <input class="field" id="email" name="email" type="email" placeholder="seuemail@empresa.com">
                 </div>
-                <div class="form-group">
-                  <label for="servico">Tipo de serviço</label>
-                  <select class="select" id="servico" name="servico">
-                    <option value="">Selecione</option>
-                    <option>Diagnóstico eletrônico</option>
-                    <option>Revisão de motor</option>
-                    <option>Revisão de transmissões</option>
-                    <option>Revisão preventiva</option>
-                    <option>Manutenção elétrica</option>
-                    <option>Outro</option>
-                  </select>
-                </div>
+
+<div class="form-group">
+  <label for="servico">Tipo de serviço</label>
+  <div class="select-wrap">
+    <select class="select" id="servico" name="servico" required>
+  <option value="" selected disabled>Selecione</option>
+  <option>Diagnóstico eletrônico</option>
+  <option>Revisão de motor</option>
+  <option>Revisão de transmissões</option>
+  <option>Revisão preventiva</option>
+  <option>Manutenção elétrica</option>
+  <option>Outro</option>
+</select>
+  </div>
+</div>
+
                 <div class="form-group form-group--full">
                   <label for="mensagem">Mensagem</label>
                   <textarea class="textarea" id="mensagem" name="mensagem" placeholder="Descreva a sua necessidade, dúvida ou solicitação."></textarea>
