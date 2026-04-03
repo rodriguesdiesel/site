@@ -533,22 +533,176 @@ select {
 }
 
 /* =========================================================
-   CARD DE SERVIÇO
+   CARROSSEL DE SERVIÇOS
 ========================================================= */
-.service-card {
-  position: relative;
-  padding-top: 76px;
-
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.042),
-    rgba(0, 0, 0, 0.6)
-  );
-
-  border: 1px solid rgba(239, 59, 50, 0.289);
+.services-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 8px 2px 14px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
+.services-carousel::-webkit-scrollbar {
+  height: 8px;
+}
 
+.services-carousel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+}
+
+.services-carousel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+/* =========================================================
+   CARD DE SERVIÇO
+   Estrutura:
+   - parte superior = imagem
+   - parte inferior = faixa escura com texto
+========================================================= */
+.services-carousel .service-card {
+  position: relative;
+  flex: 0 0 320px;
+  min-width: 320px;
+  max-width: 320px;
+  min-height: 360px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 0;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(239, 60, 50, 0.28);
+  background: #0b0b0b;
+  box-shadow: var(--shadow);
+  scroll-snap-align: start;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+/* imagem ocupa a parte superior do card */
+.services-carousel .service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 15% 0; /* deixa 15% para a faixa inferior */
+  background-image: var(--card-img);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform 0.35s ease;
+}
+
+/* leve véu para melhorar a leitura perto da divisão */
+.services-carousel .service-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 15%;
+  height: 24%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* conteúdo vira a faixa inferior */
+.services-carousel .service-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.services-carousel .service-card .service-card__icon,
+.services-carousel .service-card h3,
+.services-carousel .service-card p {
+  width: 100%;
+  background: #050505;
+}
+
+/* número */
+.services-carousel .service-card .service-card__icon {
+  position: static;
+  width: auto;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background: #050505;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 16px 20px 0;
+  margin: 0;
+}
+
+/* título */
+.services-carousel .service-card h3 {
+  margin: 0;
+  padding: 6px 20px 10px;
+  color: #ffffff;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+/* descrição */
+.services-carousel .service-card p {
+  margin: 0;
+  padding: 0 20px 18px;
+  color: #d8d8d8;
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+/* hover */
+.services-carousel .service-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(239, 60, 50, 0.45);
+}
+
+.services-carousel .service-card:hover::before {
+  transform: scale(1.04);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .services-carousel .service-card {
+    flex: 0 0 300px;
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 345px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .services-carousel {
+    gap: 16px;
+    padding-bottom: 12px;
+  }
+
+  .services-carousel .service-card {
+    flex: 0 0 86%;
+    min-width: 86%;
+    max-width: 86%;
+    min-height: 340px;
+  }
+
+  .services-carousel .service-card h3 {
+    font-size: 1rem;
+  }
+
+  .services-carousel .service-card p {
+    font-size: 0.9rem;
+  }
+}
 
 /* =========================================================
    CONTATO / FORMULÁRIO
